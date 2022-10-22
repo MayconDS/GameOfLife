@@ -126,7 +126,8 @@ class GameOfLife {
   }
   execute() {
     let time = Date.now() - this.lastExecute
-    if (time >= 150) {
+
+    if (time >= 50) {
       this.lastExecute = Date.now()
       this.calculateCell()
       this.update()
@@ -135,7 +136,7 @@ class GameOfLife {
   }
 }
 
-var game = new GameOfLife(40, 40)
+var game = new GameOfLife(30, 30)
 var idAnimation
 
 function executeGame() {
@@ -143,6 +144,7 @@ function executeGame() {
   idAnimation = requestAnimationFrame(executeGame)
 }
 
+// Buttons start,stop,clear //
 let btnStart = document.getElementById('start')
 btnStart.onclick = () => {
   if (!idAnimation) idAnimation = requestAnimationFrame(executeGame)
@@ -161,5 +163,5 @@ btnClear.onclick = () => {
   game.clearCells()
   game.render()
 }
-
+// Buttons start,stop,clear //
 game.render()
