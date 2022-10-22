@@ -1,5 +1,6 @@
 class GameOfLife {
-  constructor(width, height) {
+  constructor(width, height, speed) {
+    this.speed = speed
     this.canvas = new Canvas()
     this.canvas.canvas.addEventListener('click', (e) => this.mouseClick(e))
     this.lastExecute = Date.now()
@@ -127,7 +128,7 @@ class GameOfLife {
   execute() {
     let time = Date.now() - this.lastExecute
 
-    if (time >= 50) {
+    if (time >= this.speed) {
       this.lastExecute = Date.now()
       this.calculateCell()
       this.update()
@@ -136,7 +137,7 @@ class GameOfLife {
   }
 }
 
-var game = new GameOfLife(30, 30)
+var game = new GameOfLife(30, 30, 300)
 var idAnimation
 
 function executeGame() {
@@ -144,7 +145,13 @@ function executeGame() {
   idAnimation = requestAnimationFrame(executeGame)
 }
 
+function setVelocity(vel) {
+  console.log(vel)
+  game.speed = vel
+}
+
 // Buttons start,stop,clear //
+
 let btnStart = document.getElementById('start')
 btnStart.onclick = () => {
   if (!idAnimation) idAnimation = requestAnimationFrame(executeGame)
