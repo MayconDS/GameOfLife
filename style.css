@@ -1,0 +1,136 @@
+body {
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+   
+}
+button {
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    height: 35px;
+    border: none;
+    outline: 0;
+    transition: all ease 0.3s;
+}
+button:hover {
+    opacity: 0.8;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    
+   
+    gap: 30px;
+    align-items: center;
+    
+}
+/* Left */
+.left {
+    top: 10px;
+   
+   position: fixed;
+  
+    flex: 1;
+}
+.rectangle {
+    width: 100%;
+    height: 100%;
+}
+.buttons {
+    gap: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.buttons #start {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    background-color: rgb(0, 153, 255)
+}
+.buttons #stop {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    background-color: rgb(255, 60, 60)
+}
+.buttons #clear{
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    background-color: rgb(255, 141, 60)
+}
+
+
+/* Right */
+.right {
+    margin-left: 52%;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.grid-4 {
+    display: grid;
+    grid-template-columns: 30px 30px 30px 30px;
+}
+.rule-1,.rule-2,.rule-3,.rule-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+.block {
+    background-color: white;
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+}
+
+/* 1 RULE */
+
+
+.generation-1  .block-rule-1-G1-2,.block-rule-1-G1-5,.block-rule-1-G1-10 {
+    background-color: rgb(32, 217, 85);
+} 
+.generation-2 .block-rule-1-G2-5,.block-rule-1-G2-6 {
+    background-color: rgb(32, 217, 85);
+}
+
+
+/* 2 RULE */
+.generation-1  .block-rule-2-G1-1, .block-rule-2-G1-6, .block-rule-2-G1-11 {
+    background-color: rgb(32, 217, 85);
+}
+.generation-2 .block-rule-2-G2-6 {
+    background-color: rgb(32, 217, 85);
+}
+
+/* 3 RULE */
+
+.generation-1  .block-rule-3-G1-1, .block-rule-3-G1-2, .block-rule-3-G1-3,  .block-rule-3-G1-5, .block-rule-3-G1-6{
+    background-color: rgb(32, 217, 85);
+}
+.generation-2 .block-rule-3-G2-1,.block-rule-3-G2-3,.block-rule-3-G2-5,.block-rule-3-G2-7 {
+    background-color: rgb(32, 217, 85);
+}
+/* 4 RULE/ */
+.generation-1  .block-rule-4-G1-5,.block-rule-4-G1-6,.block-rule-4-G1-7 {
+    background-color: rgb(32, 217, 85);
+}
+.generation-2 .block-rule-4-G2-2,.block-rule-4-G2-6,.block-rule-4-G2-10 {
+    background-color: rgb(32, 217, 85);
+}
+.generation-3 .block-rule-4-G3-5,.block-rule-4-G3-6,.block-rule-4-G3-7 {
+    background-color: rgb(32, 217, 85);
+}
+
+/* Media Queries */
+
+@media(max-width: 1400px) {
+    .left {
+        position: relative;
+    }
+    .right {
+        margin-left: 0px; 
+    }
+    .container {
+        flex-direction: column;
+    }
+}

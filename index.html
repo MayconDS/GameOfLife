@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>GameOfLife</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <div class="rectangle">
+          <canvas
+            id="canvas"
+            width="700"
+            height="700"
+            style="border: 1px solid black"
+          >
+          </canvas>
+        </div>
+
+        <div class="buttons">
+          <button id="start">Start</button>
+          <button id="stop">Stop</button>
+          <button id="clear">Clear</button>
+        </div>
+      </div>
+      <div class="right">
+        <h1>Regras do Jogo da Vida</h1>
+        <span
+          >- Qualquer espaço vazio com exatamente três vizinhos vivos se torna
+          uma célula viva. Ex:</span
+        >
+
+        <div class="rule-1">
+          <div class="generation-1">
+            <h4>Geração 1</h4>
+            <div class="grid-4">
+              <div class="square">
+                <div class="block block-rule-1-G1-1"></div>
+                <div class="block block-rule-1-G1-2"></div>
+                <div class="block block-rule-1-G1-3"></div>
+                <div class="block block-rule-1-G1-4"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-1-G1-5"></div>
+                <div class="block block-rule-1-G1-6"></div>
+                <div class="block block-rule-1-G1-7"></div>
+                <div class="block block-rule-1-G1-8"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-1-G1-9"></div>
+                <div class="block block-rule-1-G1-10"></div>
+                <div class="block block-rule-1-G1-11"></div>
+                <div class="block block-rule-1-G1-12"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-1-G1-13"></div>
+                <div class="block block-rule-1-G1-14"></div>
+                <div class="block block-rule-1-G1-15"></div>
+                <div class="block block-rule-1-G1-16"></div>
+              </div>
+            </div>
+          </div>
+          <div class="generation-2">
+            <h4>Geração 2</h4>
+            <div class="grid-4">
+              <div class="square">
+                <div class="block block-rule-1-G2-1"></div>
+                <div class="block block-rule-1-G2-2"></div>
+                <div class="block block-rule-1-G2-3"></div>
+                <div class="block block-rule-1-G2-4"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-1-G2-5"></div>
+                <div class="block block-rule-1-G2-6"></div>
+                <div class="block block-rule-1-G2-7"></div>
+                <div class="block block-rule-1-G2-8"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-1-G2-9"></div>
+                <div class="block block-rule-1-G2-10"></div>
+                <div class="block block-rule-1-G2-11"></div>
+                <div class="block block-rule-1-G2-12"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-1-G2-13"></div>
+                <div class="block block-rule-1-G2-14"></div>
+                <div class="block block-rule-1-G2-15"></div>
+                <div class="block block-rule-1-G2-16"></div>
+              </div>
+            </div>
+          </div>
+          <div class="generation-3">
+            <h4>Geração 3</h4>
+            <div class="grid-4">
+              <div class="square">
+                <div class="block block-rule-1-G3-1"></div>
+                <div class="block block-rule-1-G3-2"></div>
+                <div class="block block-rule-1-G3-3"></div>
+                <div class="block block-rule-1-G3-4"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-1-G3-5"></div>
+                <div class="block block-rule-1-G3-6"></div>
+                <div class="block block-rule-1-G3-7"></div>
+                <div class="block block-rule-1-G3-8"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-1-G3-9"></div>
+                <div class="block block-rule-1-G3-10"></div>
+                <div class="block block-rule-1-G3-11"></div>
+                <div class="block block-rule-1-G3-12"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-1-G3-13"></div>
+                <div class="block block-rule-1-G3-14"></div>
+                <div class="block block-rule-1-G3-15"></div>
+                <div class="block block-rule-1-G3-16"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <span
+          >Qualquer célula viva com menos de dois vizinhos vivos morre de
+          solidão. Ex:</span
+        >
+        <div class="rule-2">
+          <div class="generation-1">
+            <h4>Geração 1</h4>
+            <div class="grid-4">
+              <div class="square">
+                <div class="block block-rule-2-G1-1"></div>
+                <div class="block block-rule-2-G1-2"></div>
+                <div class="block block-rule-2-G1-3"></div>
+                <div class="block block-rule-2-G1-4"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-2-G1-5"></div>
+                <div class="block block-rule-2-G1-6"></div>
+                <div class="block block-rule-2-G1-7"></div>
+                <div class="block block-rule-2-G1-8"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-2-G1-9"></div>
+                <div class="block block-rule-2-G1-10"></div>
+                <div class="block block-rule-2-G1-11"></div>
+                <div class="block block-rule-2-G1-12"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-2-G1-13"></div>
+                <div class="block block-rule-2-G1-14"></div>
+                <div class="block block-rule-2-G1-15"></div>
+                <div class="block block-rule-2-G1-16"></div>
+              </div>
+            </div>
+          </div>
+          <div class="generation-2">
+            <h4>Geração 2</h4>
+            <div class="grid-4">
+              <div class="square">
+                <div class="block block-rule-2-G2-1"></div>
+                <div class="block block-rule-2-G2-2"></div>
+                <div class="block block-rule-2-G2-3"></div>
+                <div class="block block-rule-2-G2-4"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-2-G2-5"></div>
+                <div class="block block-rule-2-G2-6"></div>
+                <div class="block block-rule-2-G2-7"></div>
+                <div class="block block-rule-2-G2-8"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-2-G2-9"></div>
+                <div class="block block-rule-2-G2-10"></div>
+                <div class="block block-rule-2-G2-11"></div>
+                <div class="block block-rule-2-G2-12"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-2-G2-13"></div>
+                <div class="block block-rule-2-G2-14"></div>
+                <div class="block block-rule-2-G2-15"></div>
+                <div class="block block-rule-2-G2-16"></div>
+              </div>
+            </div>
+          </div>
+          <div class="generation-3">
+            <h4>Geração 3</h4>
+            <div class="grid-4">
+              <div class="square">
+                <div class="block block-rule-2-G3-1"></div>
+                <div class="block block-rule-2-G3-2"></div>
+                <div class="block block-rule-2-G3-3"></div>
+                <div class="block block-rule-2-G3-4"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-2-G3-5"></div>
+                <div class="block block-rule-2-G3-6"></div>
+                <div class="block block-rule-2-G3-7"></div>
+                <div class="block block-rule-2-G3-8"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-2-G3-9"></div>
+                <div class="block block-rule-2-G3-10"></div>
+                <div class="block block-rule-2-G3-11"></div>
+                <div class="block block-rule-2-G3-12"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-2-G3-13"></div>
+                <div class="block block-rule-2-G3-14"></div>
+                <div class="block block-rule-2-G3-15"></div>
+                <div class="block block-rule-2-G3-16"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span>
+          - Qualquer célula viva com mais de três vizinhos vivos morre de
+          superpopulação. Ex:
+        </span>
+        <div class="rule-3">
+          <div class="generation-1">
+            <h4>Geração 1</h4>
+            <div class="grid-4">
+              <div class="square">
+                <div class="block block-rule-3-G1-1"></div>
+                <div class="block block-rule-3-G1-2"></div>
+                <div class="block block-rule-3-G1-3"></div>
+                <div class="block block-rule-3-G1-4"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-3-G1-5"></div>
+                <div class="block block-rule-3-G1-6"></div>
+                <div class="block block-rule-3-G1-7"></div>
+                <div class="block block-rule-3-G1-8"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-3-G1-9"></div>
+                <div class="block block-rule-3-G1-10"></div>
+                <div class="block block-rule-3-G1-11"></div>
+                <div class="block block-rule-3-G1-12"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-3-G1-13"></div>
+                <div class="block block-rule-3-G1-14"></div>
+                <div class="block block-rule-3-G1-15"></div>
+                <div class="block block-rule-3-G1-16"></div>
+              </div>
+            </div>
+          </div>
+          <div class="generation-2">
+            <h4>Geração 2</h4>
+            <div class="grid-4">
+              <div class="square">
+                <div class="block block-rule-3-G2-1"></div>
+                <div class="block block-rule-3-G2-2"></div>
+                <div class="block block-rule-3-G2-3"></div>
+                <div class="block block-rule-3-G2-4"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-3-G2-5"></div>
+                <div class="block block-rule-3-G2-6"></div>
+                <div class="block block-rule-3-G2-7"></div>
+                <div class="block block-rule-3-G2-8"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-3-G2-9"></div>
+                <div class="block block-rule-3-G2-10"></div>
+                <div class="block block-rule-3-G2-11"></div>
+                <div class="block block-rule-3-G2-12"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-3-G2-13"></div>
+                <div class="block block-rule-3-G2-14"></div>
+                <div class="block block-rule-3-G2-15"></div>
+                <div class="block block-rule-3-G2-16"></div>
+              </div>
+            </div>
+          </div>
+          <div class="generation-3">
+            <h4>Geração 3</h4>
+            <div class="grid-4">
+              <div class="square">
+                <div class="block block-rule-3-G3-1"></div>
+                <div class="block block-rule-3-G3-2"></div>
+                <div class="block block-rule-3-G3-3"></div>
+                <div class="block block-rule-3-G3-4"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-3-G3-5"></div>
+                <div class="block block-rule-3-G3-6"></div>
+                <div class="block block-rule-3-G3-7"></div>
+                <div class="block block-rule-3-G3-8"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-3-G3-9"></div>
+                <div class="block block-rule-3-G3-10"></div>
+                <div class="block block-rule-3-G3-11"></div>
+                <div class="block block-rule-3-G3-12"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-3-G3-13"></div>
+                <div class="block block-rule-3-G3-14"></div>
+                <div class="block block-rule-3-G3-15"></div>
+                <div class="block block-rule-3-G3-16"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        - Qualquer célula viva com dois ou três vizinhos vivos continua viva
+        para a próxima geração. Ex:
+        <div class="rule-4">
+          <div class="generation-1">
+            <h4>Geração 1</h4>
+            <div class="grid-4">
+              <div class="square">
+                <div class="block block-rule-4-G1-1"></div>
+                <div class="block block-rule-4-G1-2"></div>
+                <div class="block block-rule-4-G1-3"></div>
+                <div class="block block-rule-4-G1-4"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-4-G1-5"></div>
+                <div class="block block-rule-4-G1-6"></div>
+                <div class="block block-rule-4-G1-7"></div>
+                <div class="block block-rule-4-G1-8"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-4-G1-9"></div>
+                <div class="block block-rule-4-G1-10"></div>
+                <div class="block block-rule-4-G1-11"></div>
+                <div class="block block-rule-4-G1-12"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-4-G1-13"></div>
+                <div class="block block-rule-4-G1-14"></div>
+                <div class="block block-rule-4-G1-15"></div>
+                <div class="block block-rule-4-G1-16"></div>
+              </div>
+            </div>
+          </div>
+          <div class="generation-2">
+            <h4>Geração 2</h4>
+            <div class="grid-4">
+              <div class="square">
+                <div class="block block-rule-4-G2-1"></div>
+                <div class="block block-rule-4-G2-2"></div>
+                <div class="block block-rule-4-G2-3"></div>
+                <div class="block block-rule-4-G2-4"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-4-G2-5"></div>
+                <div class="block block-rule-4-G2-6"></div>
+                <div class="block block-rule-4-G2-7"></div>
+                <div class="block block-rule-4-G2-8"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-4-G2-9"></div>
+                <div class="block block-rule-4-G2-10"></div>
+                <div class="block block-rule-4-G2-11"></div>
+                <div class="block block-rule-4-G2-12"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-4-G2-13"></div>
+                <div class="block block-rule-4-G2-14"></div>
+                <div class="block block-rule-4-G2-15"></div>
+                <div class="block block-rule-4-G2-16"></div>
+              </div>
+            </div>
+          </div>
+          <div class="generation-3">
+            <h4>Geração 3</h4>
+            <div class="grid-4">
+              <div class="square">
+                <div class="block block-rule-4-G3-1"></div>
+                <div class="block block-rule-4-G3-2"></div>
+                <div class="block block-rule-4-G3-3"></div>
+                <div class="block block-rule-4-G3-4"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-4-G3-5"></div>
+                <div class="block block-rule-4-G3-6"></div>
+                <div class="block block-rule-4-G3-7"></div>
+                <div class="block block-rule-4-G3-8"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-4-G3-9"></div>
+                <div class="block block-rule-4-G3-10"></div>
+                <div class="block block-rule-4-G3-11"></div>
+                <div class="block block-rule-4-G3-12"></div>
+              </div>
+              <div class="square">
+                <div class="block block-rule-4-G3-13"></div>
+                <div class="block block-rule-4-G3-14"></div>
+                <div class="block block-rule-4-G3-15"></div>
+                <div class="block block-rule-4-G3-16"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="scripts/canvas.js"></script>
+    <script src="scripts/Random.js"></script>
+    <script src="scripts/GameOfLife.js"></script>
+  </body>
+</html>
