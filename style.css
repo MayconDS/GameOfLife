@@ -134,3 +134,14 @@ button:hover {
         flex-direction: column;
     }
 }
+
+@media(max-width: 700px) {
+    .buttons {
+       
+        margin-top: -50px;
+        flex-direction: column;
+    }
+    .container {
+        gap: 130px;
+    }
+} 
